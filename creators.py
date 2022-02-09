@@ -15,7 +15,6 @@ from . import MockCreatorInterface
 
 
 class BaseMockCreator(MockCreatorInterface):
-
     def create_mocks(self):
         mocks: List[str] = self.__dict__.keys()
         for mock in mocks:
@@ -27,14 +26,3 @@ class BaseMockCreator(MockCreatorInterface):
     def reset_mocks(self) -> None:
         for patch in self.patch_list:
             patch.stop()
-
-class RepositoryMockCreator(BaseMockCreator):
-
-    path: str = 'clients.repository.'
-
-
-class RabbitMockCreator(BaseMockCreator):
-
-    path: str = 'clients.rabbit.'
-
-    
